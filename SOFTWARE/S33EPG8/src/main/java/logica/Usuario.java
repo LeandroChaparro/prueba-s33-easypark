@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logica;
 
-/**
- *
+/*
  * Grupo 8 EasyPark
  */
 
@@ -96,10 +91,7 @@ public class Usuario {
         this.telefono = telefono;
     }
     
-    
-    
-    
-  public usuarios obtenerContacto() {
+  public usuario obtenerContacto() {
 
         String sentencia = "SELECT * FROM usuarios WHERE num_documento='" + this.num_documento + "'";
         ResultSet rs = conexion.consultarBD(sentencia);
@@ -108,10 +100,10 @@ public class Usuario {
 
             if (rs.next()) {
 
-                this.contacto_id = rs.getInt("contacto_id");
+                this.id_usuario = rs.getInt("id_usuario");
                 this.nombre = rs.getString("nombre");
                 this.apellido = rs.getString("apellido");
-                this.tipo_Identificacion = rs.getString("tipoIdentificacion");
+                this.num_documento = rs.getString("num_documento");
                 
                 
                 return this;
