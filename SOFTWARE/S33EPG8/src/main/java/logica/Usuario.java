@@ -91,49 +91,9 @@ public class Usuario {
         this.telefono = telefono;
     }
     
-  public usuario obtenerContacto() {
 
-        String sentencia = "SELECT * FROM usuarios WHERE num_documento='" + this.num_documento + "'";
-        ResultSet rs = conexion.consultarBD(sentencia);
 
-        try {
 
-            if (rs.next()) {
-
-                this.id_usuario = rs.getInt("id_usuario");
-                this.nombre = rs.getString("nombre");
-                this.apellido = rs.getString("apellido");
-                this.num_documento = rs.getString("num_documento");
-                
-                
-                return this;
-
-            }
-
-        } catch (SQLException ex) {
-
-            System.out.println("Error en la consulta a la bd: " + ex.getMessage());
-
-        }
-        return null;
-    }
-
-public boolean actualizarContacto(){
-
-String sentencia="UPDATE contactos SET"+this.nombre+"',apellido='"+this.apellido+"', genero='"+this.genero+"'"
-        +",tipoIdentificacion='"+this.identificacion+"'telefono='"+this.telefono+"',direccion='"+this.direccion+"'"
-        +",correo='"+this.correo+"', edad='"+this.edad+"' WHERE num_documento="+this.num_documento+";";
-return conexion.actualizarBD(sentencia);
-
-}
-
-public boolean borrarContacto(int num_documento){
-
-    String sentencia= "DELETE FROM usuarios WHERE num_documento="+num_documento;
-    return conexion.borrarBD(sentencia);
-            
-  
-}  
     
     
     
