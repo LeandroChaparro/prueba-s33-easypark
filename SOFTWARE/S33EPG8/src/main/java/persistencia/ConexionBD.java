@@ -8,7 +8,6 @@ package persistencia;
  *
  * @author Leandro
  */
-
 import java.sql.*;
 
 public class ConexionBD {
@@ -24,7 +23,8 @@ public class ConexionBD {
     private ResultSet rs = null;
     private boolean local; //Se inicializa en false por defecto
 //-------------------------Constructor de la clase-------------------------------------------------------------------------------
-    public ConexionBD() {   
+
+    public ConexionBD() {
 
         local = false;
         DB_driver = "com.mysql.cj.jdbc.Driver";
@@ -52,7 +52,7 @@ public class ConexionBD {
         }
 
         try {
-            con = DriverManager.getConnection(url,username,password);
+            con = DriverManager.getConnection(url, username, password);
             if (con != null) {
                 DatabaseMetaData meta = con.getMetaData();
                 System.out.println("Base de datos conectada " + meta.getDriverName());
@@ -62,15 +62,70 @@ public class ConexionBD {
         }
 
     }
-    
+
+    public ResultSet consultarBD(String sentencia) { //Método Constructivo, entre parentesis lo metodos de entrada
+
+        try {
+            stmt = con.createStatement();      //Asignando a stmt asigna la consulta para ver si existe
+            rs = stmt.executeQuery(sentencia); //Devuelve la consulta
+        } catch (SQLException sqlex) {
+            System.out.println(sqlex.getMessage());
+        } catch (RuntimeException rex) {
+            System.out.println(rex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return rs;
+    }
+
+    public boolean insertarBD(String sentencia) {
+
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sentencia);
+        } catch (SQLException | RuntimeException sqlex) {
+            System.out.println("Error en insertar: " + sqlex.getMessage());
+            return false;
+
+        }
+        return true;
+
+    }
+
+    public boolean actualizarBD(String sentencia) {
+
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(sentencia);
+        } catch (SQLException | RuntimeException sqlex) {
+            System.out.println("Error en actualizar: " + sqlex.getMessage());
+            return false;
+
+        }
+        return true;
+
+    }
+
+    public boolean borrarBD(String sentencia) {
+
+        try {
+            stmt = con.createStatement();
+            stmt.execute(sentencia);
+        } catch (SQLException | RuntimeException sqlex) {
+            System.out.println("Error en borrar: " + sqlex.getMessage());
+            return false;
+
+        }
+        return true;
+
+    }
+
 //-------------------------------Main para probar-----------------------------------------------------------------------------------------    
-public static void main (String[] args){
+    public static void main(String[] args) {
 
+        ConexionBD ejemplo = new ConexionBD();
 
-    
-   ConexionBD ejemplo= new ConexionBD();
+    }
 
-    
-}     
-    
 }
