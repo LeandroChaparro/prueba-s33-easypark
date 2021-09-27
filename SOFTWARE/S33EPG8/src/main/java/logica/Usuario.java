@@ -94,8 +94,112 @@ public class Usuario {
     
 
 
-
     
+    
+    
+    
+    
+    
+    
+    
+    
+//--------------------------------------Main para probar 
+    
+    public static void main(String[] args) {
+
+//--------------------------------------Guardar Usuario_1 
+/*
+Usuario ejemploUsuario= new Usuario();
+ejemploUsuario.setNombre("Leandro");
+ejemploUsuario.setApellido("Chaparro");
+ejemploUsuario.setTipo_documento("CC");
+ejemploUsuario.setNum_documento("1015412314");
+ejemploUsuario.setTipo_vehiculo("Bicicleta");
+ejemploUsuario.setPlaca("");
+ejemploUsuario.setTelefono("3118972801");
+ejemploUsuario.guardarUsuario();
+*/
+
+//--------------------------------------Guardar Usuario_2                
+/*
+Usuario ejemploUsuario= new Usuario();
+ejemploUsuario.setNombre("Yolanda");
+ejemploUsuario.setApellido("Tambo");
+ejemploUsuario.setTipo_documento("CC");
+ejemploUsuario.setNum_documento("1002004567");
+ejemploUsuario.setTipo_vehiculo("Carro");
+ejemploUsuario.setPlaca("SKD-321");
+ejemploUsuario.setTelefono("3112223334");
+ejemploUsuario.guardarUsuario();
+*/       
+         
+//--------------------------------------Guardar Usuario_3          
+/*          
+Usuario ejemploUsuario= new Usuario();
+ejemploUsuario.setNombre("Mireya");
+ejemploUsuario.setApellido("Martinez");
+ejemploUsuario.setTipo_documento("CC");
+ejemploUsuario.setNum_documento("2134532122");
+ejemploUsuario.setTipo_vehiculo("Carro");
+ejemploUsuario.setPlaca("ETD-954");
+ejemploUsuario.setTelefono("3139998885");
+ejemploUsuario.guardarUsuario();
+*/
+       
+//--------------------------------------Guardar Usuario_4    
+/* 
+Usuario ejemploUsuario= new Usuario();
+ejemploUsuario.setNombre("Andres");
+ejemploUsuario.setApellido("Martinez");
+ejemploUsuario.setTipo_documento("CE");
+ejemploUsuario.setNum_documento("1100021121");
+ejemploUsuario.setTipo_vehiculo("Moto");
+ejemploUsuario.setPlaca("GTO-078");
+ejemploUsuario.setTelefono("3053333337");
+ejemploUsuario.guardarUsuario();
+*/  
+
+
+//--------------------------------------Listar Usuarios     
+/*     
+Usuario ejemploUsuario = new Usuario();
+ArrayList<Usuario> ejemploListaUsuarios= ejemploUsuario.listaUsuarios();
+
+for(Usuario c:ejemploListaUsuarios){
+System.out.println("El nombre del usuario es: "+ c.getNombre());
+}
+*/
+
+
+//--------------------------------------Obtener Usuario
+/*
+Usuario ejemploUsuario = new Usuario();
+ejemploUsuario.setNum_documento("1015412314");
+ejemploUsuario=ejemploUsuario.obtenerUsuario();
+System.out.println("El nombre es: "+ejemploUsuario.getNombre());
+*/
+ 
+//--------------------------------------Actualizar Usuario
+/*
+        Usuario ejemploUsuario = new Usuario();
+        ejemploUsuario.setNombre("Leandro");
+        ejemploUsuario.setApellido("Chaparro");
+        ejemploUsuario.setTipo_documento("CC");
+        ejemploUsuario.setNum_documento("1015412314");
+        ejemploUsuario.setTipo_vehiculo("Carro");
+        ejemploUsuario.setPlaca("ABC-123");
+        ejemploUsuario.setTelefono("3118972801");
+
+        ejemploUsuario.setId_usuario(1);
+        ejemploUsuario.actualizarUsuario();
+ */
+ 
+//--------------------------------------Borrar Usuario 
+/*
+Usuario ejemploUsuario = new Usuario();
+ejemploUsuario.borrarUsuario(5);
+*/
+    } //Cierre del Main    
      
     
 }
