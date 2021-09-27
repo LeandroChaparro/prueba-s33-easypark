@@ -199,14 +199,14 @@ ejemploUsuario.guardarUsuario();
 
 
 //--------------------------------------Listar Usuarios     
- /*   
+  
 Usuario ejemploUsuario = new Usuario();
 ArrayList<Usuario> ejemploListaUsuarios= ejemploUsuario.listaUsuarios();
 
 for(Usuario us:ejemploListaUsuarios){
 System.out.println("El nombre del usuario es: "+ us.getNombre()+" El apellido del usuario es: "+ us.getApellido());
 }
-*/
+
 
 
 //--------------------------------------Obtener Usuario
