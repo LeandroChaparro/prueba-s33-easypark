@@ -238,9 +238,6 @@ Usuario ejemploUsuario = new Usuario();
 ejemploUsuario.borrarUsuario(5);
 */
 
-Usuario ejemploUsuario = new Usuario();
-ejemploUsuario.borrarUsuario(6);
-
     } //Cierre del Main    
      
     
