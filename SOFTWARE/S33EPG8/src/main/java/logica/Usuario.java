@@ -20,6 +20,7 @@ public class Usuario {
     private String num_documento;
     private String tipo_vehiculo;
     private String placa;
+    private String telefono;
     private ConexionBD conexion;    
     
     
@@ -95,7 +96,6 @@ public class Usuario {
 
 
     
-    
-    
+     
     
 }
