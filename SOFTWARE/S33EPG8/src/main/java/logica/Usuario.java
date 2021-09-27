@@ -13,7 +13,7 @@ import persistencia.ConexionBD;
 
 public class Usuario {
     
-    private int    id_usuario;
+    private int id_usuario;
     private String nombre;
     private String apellido;
     private String tipo_documento;
@@ -92,6 +92,12 @@ public class Usuario {
         this.telefono = telefono;
     }
     
+    public boolean guardarUsuario() {
+        String sentencia = "INSERT INTO usuarios(nombre, aplleido, tipo_documento, num_documento, tipo_vehiculo, placa, telefono) VALUES('" + this.nombre + "','" + this.apellido + "',"
+                + "'" + this.tipo_documento + "','" + this.num_documento + "','" + this.tipo_vehiculo + "',"
+                + "'" + this.placa + "','" + this.telefono + "');";
+        return conexion.insertarBD(sentencia);
+    }
 
 
 
