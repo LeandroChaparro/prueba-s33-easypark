@@ -119,11 +119,16 @@ public class Usuario {
                 listaUsuarios.add(us);
             }
         } catch (SQLException ex) {
-            System.out.println("Error en la consulta a la bd: " + ex.getMessage());
+            System.out.println("Error en la consulta a la base de datos: " + ex.getMessage());
         }
 
         return listaUsuarios;
 
+    }
+    
+    public boolean borrarUsuario(int id_usuario) {
+        String sentencia = "DELETE FROM usuarios WHERE id_usuario = " + id_usuario + ";";
+        return conexion.borrarBD(sentencia);
     }
 
 
@@ -194,12 +199,12 @@ ejemploUsuario.guardarUsuario();
 
 
 //--------------------------------------Listar Usuarios     
-/*     
+ /*   
 Usuario ejemploUsuario = new Usuario();
 ArrayList<Usuario> ejemploListaUsuarios= ejemploUsuario.listaUsuarios();
 
-for(Usuario c:ejemploListaUsuarios){
-System.out.println("El nombre del usuario es: "+ c.getNombre());
+for(Usuario us:ejemploListaUsuarios){
+System.out.println("El nombre del usuario es: "+ us.getNombre()+" El apellido del usuario es: "+ us.getApellido());
 }
 */
 
@@ -232,6 +237,10 @@ System.out.println("El nombre es: "+ejemploUsuario.getNombre());
 Usuario ejemploUsuario = new Usuario();
 ejemploUsuario.borrarUsuario(5);
 */
+
+Usuario ejemploUsuario = new Usuario();
+ejemploUsuario.borrarUsuario(6);
+
     } //Cierre del Main    
      
     
