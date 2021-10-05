@@ -24,7 +24,7 @@
     });
 
        String proceso = request.getParameter("proceso");
-System.out.println("HOLLLLAAAAAA");
+
     if (tareas.contains(proceso)) {
         respuesta += "\"ok\":true, ";
         if (proceso.equals("guardarUsuario")) {

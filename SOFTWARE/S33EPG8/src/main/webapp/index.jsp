@@ -218,7 +218,7 @@
         function controladorContactos($http) {
             var cn = this;
             
-alert("Función controladorUsuarios");
+
 
 
 
@@ -257,9 +257,7 @@ alert("Ingreso a listarUsuarios");
                     params: params
                 }).then(function (res) {
 
-                    alert(res.data.ok);
-                    alert(params.proceso);
-                    alert(res.data[params.proceso]);
+
                     if (res.data.ok === true) {
 
                         if (res.data[params.proceso] === true) {
