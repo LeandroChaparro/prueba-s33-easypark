@@ -72,30 +72,30 @@
             respuesta += " \"listarusuario\":true, \"Contactos\":" + new Gson().toJson(lista);
         } else if (proceso.equals("actualizarusuario")) {
 
-            String ident = request.getParameter("identificacion");
+            String tdoc = request.getParameter("tipo_documento");
+            String ndoc = request.getParameter("num_documento");
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
-            String genero = request.getParameter("genero");
-            String tipoIdentificacion = request.getParameter("tipoIdentificacion");
             String telefono = request.getParameter("telefono");
-            String direccion = request.getParameter("direccion");
             String correo = request.getParameter("correo");
+            String tvehi = request.getParameter("tipo_vehiculo");
+            String placa = request.getParameter("placa");
 
             Usuario c = new Usuario();
-            c.setIdentificacion(ident);
+            c.setTipo_documento(tdoc);
+            c.setNum_documento(ndoc);
             c.setNombre(nombre);
             c.setApellido(apellido);
-            c.setGenero(genero);
-            c.setTipoIdentificacion(tipoIdentificacion);
             c.setTelefono(telefono);
-            c.setDireccion(direccion);
             c.setCorreo(correo);
+            c.setTipo_vehiculo(tvehi);
+            c.setPlaca(placa);
 
-            if (c.actualizarContacto()) {
-                respuesta += " \"actualizarcontacto\":true";
+            if (c.actualizarUsuario()) {
+                respuesta += " \"actualizarusuario\":true";
             } else {
 
-                respuesta += " \"actualizarcontacto\":false";
+                respuesta += " \"actualizarusuario\":false";
             }
 
         }
