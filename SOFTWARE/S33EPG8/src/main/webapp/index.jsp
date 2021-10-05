@@ -212,3 +212,168 @@
             </div>
         </div> 
     </body>
+    <script>
+        var app = angular.module('S33_G8_Usuarios', []);
+        app.controller('contactosController', ['$http', controladorUsuarios]);
+        function controladorUsuarios($http) {
+            var cn = this;
+
+
+
+
+            cn.listarUsuarios = function () {
+
+                var params = {
+                    proceso: "listarusuario"
+                };
+
+                $http({
+                    method: 'POST',
+                    url: 'Peticiones.jsp',
+                    params: params
+                }).then(function (res) {
+                    cn.contactos = res.data.Contactos;
+                });
+            };
+
+
+            cn.guardarUsuario = function () {
+
+                var params = {
+                    proceso: "guardarUsuario",
+                    tipo_documento: cn.tipo_documento,
+                    num_documento: cn.num_documento,
+                    nombre: cn.nombre,
+                    apellido: cn.apellido,
+                    telefono: cn.telefono,
+                    correo: cn.correo,
+                    tipo_vehiculo: cn.tipo_vehiculo,
+                    placa: cn.placa
+                };
+                $http({
+                    method: 'POST',
+                    url: 'Peticiones.jsp',
+                    params: params
+                }).then(function (res) {
+
+                    alert(res.data.ok);
+                    alert(params.proceso);
+                    alert(res.data[params.proceso]);
+                    if (res.data.ok === true) {
+
+                        if (res.data[params.proceso] === true) {
+
+                            alert("Guardado con éxito");
+                        } else {
+
+                            alert("Por favor especifíque los datos");
+                        }
+                    } else {
+                        alert(res.data.errorMsg);
+
+                    }
+
+                });
+
+            };
+
+
+
+
+
+
+            cn.eliminarUsuario = function () {
+
+
+
+
+                var params = {
+                    proceso: "eliminarusuario",
+                    identificacion: cn.identificacion
+                };
+
+
+                $http({
+                    method: 'POST',
+                    url: 'Peticiones.jsp',
+                    params: params
+                }).then(function (res) {
+
+                    if (res.data.ok === true) {
+
+                        if (res.data[params.proceso] === true) {
+
+                            alert("Eliminado con éxito");
+                        } else {
+
+                            alert("Por favor especifíque los datos");
+                        }
+                    } else {
+                        alert(res.data.errorMsg);
+
+                    }
+
+                });
+            };
+
+
+
+
+
+
+            cn.actualizarUsuario = function () {
+
+                alert("Holaaa");
+
+                var params = {
+                    proceso: "actualizarusuario",
+    
+                    tipo_documento: cn.tipo_documento,
+                    num_documento: cn.num_documento,
+                    nombre: cn.nombre,
+                    apellido: cn.apellido,
+                    telefono: cn.telefono,
+                    correo: cn.correo,
+                    tipo_vehiculo: cn.tipo_vehiculo,
+                    placa: cn.placa
+                   
+                    
+                };
+
+
+                $http({
+                    method: 'POST',
+                    url: 'Peticiones.jsp',
+                    params: params
+                }).then(function (res) {
+
+                    if (res.data.ok === true) {
+
+                        if (res.data[params.proceso] === true) {
+
+                            alert("Actualizado con éxito");
+                        } else {
+
+                            alert("Por favor especifíque los datos");
+
+                        }
+                    } else {
+                        alert(res.data.errorMsg);
+
+                    }
+
+                });
+            };
+
+
+
+
+        }
+
+
+    </script>
+
+
+
+
+</html>
