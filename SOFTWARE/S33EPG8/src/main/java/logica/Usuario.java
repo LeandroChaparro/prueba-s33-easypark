@@ -166,9 +166,9 @@ public class Usuario {
              */
             this.setConexion();
                     }
-        String sentencia = "UPDATE usuarios SET nombre='" + this.nombre + "',apellido='" + this.apellido + "', tipo_documento='" + this.tipo_documento + "'"
+        String sentencia = "UPDATE usuarios SET nombre='" + this.nombre + "',apellido='" + this.apellido + "',tipo_documento='" + this.tipo_documento + "'"
                 + ",num_documento='" + this.num_documento + "',tipo_vehiculo='" + this.tipo_vehiculo + "',placa='" + this.placa + "'"
-                + ",telefono='" + this.telefono + ",correo='" + this.correo + "' WHERE num_documento='" + this.num_documento + "';";
+                + ",telefono='" + this.telefono + "',correo='" + this.correo + "' WHERE num_documento='" + this.num_documento + "';";
         System.out.println(sentencia);
         return conexion.actualizarBD(sentencia);
 

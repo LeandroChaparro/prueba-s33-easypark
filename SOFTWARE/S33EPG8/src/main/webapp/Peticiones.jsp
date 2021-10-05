@@ -73,9 +73,10 @@ System.out.println("HOLLLLAAAAAA");
             ArrayList<Usuario> lista= c.listaUsuarios();
             respuesta += " \"listarusuario\":true, \"Contactos\":" + new Gson().toJson(lista);
         } else if (proceso.equals("actualizarusuario")) {
-
+            
             String tdoc = request.getParameter("tipo_documento");
-            String ndoc = request.getParameter("num_documento");
+            String num_documento = request.getParameter("num_documento");
+                       System.out.println(num_documento);
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String telefono = request.getParameter("telefono");
@@ -85,7 +86,7 @@ System.out.println("HOLLLLAAAAAA");
 
             Usuario c = new Usuario();
             c.setTipo_documento(tdoc);
-            c.setNum_documento(ndoc);
+            c.setNum_documento(num_documento);
             c.setNombre(nombre);
             c.setApellido(apellido);
             c.setTelefono(telefono);
