@@ -24,13 +24,15 @@
     });
 
        String proceso = request.getParameter("proceso");
-
+System.out.println("HOLLLLAAAAAA");
     if (tareas.contains(proceso)) {
         respuesta += "\"ok\":true, ";
         if (proceso.equals("guardarUsuario")) {
 
             String tdoc = request.getParameter("tipo_documento");
-            String ndoc = request.getParameter("num_documento");
+ 
+            String num_documento = request.getParameter("num_documento");
+                       System.out.println(num_documento);
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String telefono = request.getParameter("telefono");
@@ -40,7 +42,7 @@
 
             Usuario c = new Usuario();
             c.setTipo_documento(tdoc);
-            c.setNum_documento(ndoc);
+            c.setNum_documento(num_documento);
             c.setNombre(nombre);
             c.setApellido(apellido);
             c.setTelefono(telefono);
@@ -56,14 +58,14 @@
             }
 
         } else if (proceso.equals("eliminarusuario")) {
-            String ndoc = request.getParameter("num_documento");
-            Usuario c = new Usuario();
+            String num_documento = request.getParameter("num_documento");
+            Usuario us = new Usuario();
 
-            if (c.borrarUsuario(ndoc)) {
-                respuesta += " \"eliminarcontacto\":true";
+            if (us.borrarUsuario(num_documento)) {
+                respuesta += " \"eliminarusuario\":true";
 
             } else {
-                respuesta += " \"eliminarcontacto\":false";
+                respuesta += " \"eliminarusuario\":false";
             }
         } else if (proceso.equals("listarusuario")) {
 

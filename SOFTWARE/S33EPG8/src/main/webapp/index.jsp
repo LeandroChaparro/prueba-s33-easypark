@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CRUD usuarios</title>
+        <title>CRUD Usuarios</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>  <%-------------------------------------------- Se carga la libreria de angular --------------------------------------------%>           
     </head>
@@ -214,15 +214,16 @@
     </body>
     <script>
         var app = angular.module('S33_G8_Usuarios', []);
-        app.controller('contactosController', ['$http', controladorUsuarios]);
-        function controladorUsuarios($http) {
+        app.controller('contactosController', ['$http', controladorContactos]);
+        function controladorContactos($http) {
             var cn = this;
-
+            
+alert("Función controladorUsuarios");
 
 
 
             cn.listarUsuarios = function () {
-
+alert("Ingreso a listarUsuarios");
                 var params = {
                     proceso: "listarusuario"
                 };
@@ -289,7 +290,7 @@
 
                 var params = {
                     proceso: "eliminarusuario",
-                    identificacion: cn.identificacion
+                    num_documento: cn.num_documento
                 };
 
 

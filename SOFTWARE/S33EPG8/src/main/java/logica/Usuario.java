@@ -106,6 +106,15 @@ public class Usuario {
     }
 
     public boolean guardarUsuario() {
+        
+                if (this.conexion == null) {
+            /* Necesitamos crear la conexion al momento de guardar el objeto,
+            si es null entonces si no se ha conectado, se el método que se acabo de crear para conectarse "this.setConexion();"
+            Entonces cada vez que vaya a guardar si ya esta conectado no crea la conexión, en el caso que este null la crea mediante el setConexion
+             */
+            this.setConexion();
+                }
+        
         String sentencia = "INSERT INTO usuarios(nombre, apellido, tipo_documento, num_documento, tipo_vehiculo, placa, telefono, correo) VALUES('" + this.nombre + "','" + this.apellido + "',"
                 + "'" + this.tipo_documento + "','" + this.num_documento + "','" + this.tipo_vehiculo + "',"
                 + "'" + this.placa + "','" + this.telefono + "','" + this.correo + "');";
@@ -114,6 +123,13 @@ public class Usuario {
 
     public ArrayList<Usuario> listaUsuarios() {
 
+                if (this.conexion == null) {
+            /* Necesitamos crear la conexion al momento de guardar el objeto,
+            si es null entonces si no se ha conectado, se el método que se acabo de crear para conectarse "this.setConexion();"
+            Entonces cada vez que vaya a guardar si ya esta conectado no crea la conexión, en el caso que este null la crea mediante el setConexion
+             */
+            this.setConexion();
+                }
         ArrayList<Usuario> listaUsuarios = new ArrayList<>();
         String sentencia = "SELECT * FROM usuarios";
         ResultSet rs = conexion.consultarBD(sentencia);
@@ -143,6 +159,13 @@ public class Usuario {
     
         public boolean actualizarUsuario() {
 
+                    if (this.conexion == null) {
+            /* Necesitamos crear la conexion al momento de guardar el objeto,
+            si es null entonces si no se ha conectado, se el método que se acabo de crear para conectarse "this.setConexion();"
+            Entonces cada vez que vaya a guardar si ya esta conectado no crea la conexión, en el caso que este null la crea mediante el setConexion
+             */
+            this.setConexion();
+                    }
         String sentencia = "UPDATE usuarios SET nombre='" + this.nombre + "',apellido='" + this.apellido + "', tipo_documento='" + this.tipo_documento + "'"
                 + ",num_documento='" + this.num_documento + "',tipo_vehiculo='" + this.tipo_vehiculo + "',placa='" + this.placa + "'"
                 + ",telefono='" + this.telefono + ",correo='" + this.correo + "' WHERE num_documento='" + this.num_documento + "';";
@@ -153,8 +176,16 @@ public class Usuario {
     
     
 
-    public boolean borrarUsuario(String num_documento) {
-        String sentencia = "DELETE FROM usuarios WHERE num_documento ='" + num_documento + "';";
+    public boolean borrarUsuario(String num_documento){
+        
+                if (this.conexion == null) {
+            /* Necesitamos crear la conexion al momento de guardar el objeto,
+            si es null entonces si no se ha conectado, se el método que se acabo de crear para conectarse "this.setConexion();"
+            Entonces cada vez que vaya a guardar si ya esta conectado no crea la conexión, en el caso que este null la crea mediante el setConexion
+             */
+            this.setConexion();
+                }
+        String sentencia = "DELETE FROM usuarios WHERE num_documento='" + num_documento + "';";
         System.out.println(sentencia);
         return conexion.borrarBD(sentencia);
     }
