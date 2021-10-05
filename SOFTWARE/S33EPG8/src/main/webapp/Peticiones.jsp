@@ -56,10 +56,10 @@
             }
 
         } else if (proceso.equals("eliminarusuario")) {
-            String ident = request.getParameter("identificacion");
+            String ndoc = request.getParameter("num_documento");
             Usuario c = new Usuario();
 
-            if (c.borrarUsuario(ident)) {
+            if (c.borrarUsuario(ndoc)) {
                 respuesta += " \"eliminarcontacto\":true";
 
             } else {
