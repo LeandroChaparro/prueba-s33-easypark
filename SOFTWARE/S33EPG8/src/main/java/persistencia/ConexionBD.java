@@ -62,6 +62,8 @@ public class ConexionBD {
         }
 
     }
+    
+  //-------------------------Constructor de la clase-------------------------------  
 
     public ResultSet consultarBD(String sentencia) { //Método Constructivo, entre parentesis lo metodos de entrada
 
