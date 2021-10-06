@@ -22,7 +22,7 @@
                     <center> <h1>EasyParking (S33-G8) Registro de Usuarios</h1></center>
                 </div>
             </div>
-
+<%-------------------------------------------- Sección 1 Formulario donde el usuario digita datos--------------------------------------------%>                   
             <div class="row">
 
                 <div class="col-6"> 
@@ -99,7 +99,7 @@
                     </div>
                     
                     <br>  
-                    
+                    <%-------------------------------------------- Métodos (Botones)--------------------------------------------%>
                     <div class="row">
                         <div class="col-3">
                             <button class="btn btn-success" ng-click="cn.guardarUsuario()"> Guardar </button> 
@@ -120,7 +120,7 @@
 
 
                 </div>
-
+<%-------------------------------------------- Sección 2 Formulario para ver lo que se digita, es decir Formulario Reflejo con ANGULAR--------------------------------------------%>
                 <div class="col-6">
                     <h3>Datos usuario</h3> 
 
@@ -176,11 +176,12 @@
 
                 </div>
             </div>
-
+<%-------------------------------------------- Sección 3 listado de los datos de los Contactos como tal--------------------------------------------%>
             <div class="row">
                 <div class="col-12 table-responsive-xl">
                     <h3>Lista de usuarios</h3>                                                
                     <table class="table table-striped table-hover">                                                
+                        <%-------------------------------------------- Sección 3 - Encabezado de la Tabla --------------------------------------------%>
                         <thead class="thead-dark"> 
 
                             <tr> 
@@ -196,7 +197,7 @@
                         </thead>
 
 
-
+                        <%-------------------------------------------- Sección 3 - Filas de la Tabla --------------------------------------------%>                                                                       
                         <tr ng-repeat="contacto in cn.contactos"> 
                             <td>{{contacto.tipo_documento}}</td> 
                             <td>{{contacto.num_documento}}</td> 
@@ -212,6 +213,18 @@
             </div>
         </div> 
     </body>
+    <%-------------------------------------------- Código Javascript --------------------------------------------%>
+    
+    <%-- * IMPORTANTE FUNCIÓN controladorContactos: Para enviar la PETICIÓN se crea el objeto $http, este objeto nos inicia
+           o nos ejecuta nos hace la petición al servidor mediante un ARCHIVO DE PETICIONES.
+
+         * IMPORTANTE OBJETIVO Con las funciones que se diseñan aquí ya se tienen listas las PETICIONES 
+           y la recepción de los datos del Backend.
+    
+         * Lo único que falta después de terminar todo este archivo
+           es crear el archivo de PETICIONES jsp que es "Peticiones.jsp"
+           que tiene la información de QUE HACER cuando lleguen esas peticiones.--%>
+    
     <script>
         var app = angular.module('S33_G8_Usuarios', []);
         app.controller('contactosController', ['$http', controladorContactos]);
@@ -219,7 +232,7 @@
             var cn = this;
             
 
-
+<%-------------------------------------------- Método(botón)listarUsuarios --------------------------------------------%>
 
 
             cn.listarUsuarios = function () {
@@ -237,7 +250,7 @@ alert("Ingreso a listarUsuarios");
                 });
             };
 
-
+<%-------------------------------------------- Método (botón) guardarUsuario -------------------------------------------------------------%>
             cn.guardarUsuario = function () {
 
                 var params = {
@@ -279,7 +292,7 @@ alert("Ingreso a listarUsuarios");
 
 
 
-
+<%-------------------------------------------- Método (botón) eliminarUsuario -------------------------------------------------------------%>
 
             cn.eliminarUsuario = function () {
 
@@ -318,7 +331,7 @@ alert("Ingreso a listarUsuarios");
 
 
 
-
+<%-------------------------------------------- Método (botón) actualizarUsuario -------------------------------------------------------------%>
 
             cn.actualizarUsuario = function () {
 
